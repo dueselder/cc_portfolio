@@ -277,6 +277,7 @@ footer {
 .project-image {
     flex: 1;
     margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .thumbnail {
@@ -288,10 +289,48 @@ footer {
     flex: 2;
 }
 
+/* Media query for smartphones */
+@media only screen and (max-width: 800px) {
+    .project-title {
+        grid-column: 1 / span 1; /* Adjust the title to span only one column on smartphones */
+    }
+
+    .projects {
+        grid-template-columns: repeat(1, 1fr); /* Adjust the grid to have only one column on smartphones */
+        padding: 2rem 1rem; /* Adjust the padding for smaller screens */
+    }
+
+    .thumbnail {
+        max-width: 100%; /* Allow the image to take the full width of its container */
+        max-height: auto; /* Adjust the maximum height to maintain aspect ratio */
+    }
+}
+
 .about {
+    position: relative;
     display: flex;
     background-color: var(--primary-color);
+    background-image: url(../images/about.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: var(--light-color);
+}
+
+.about::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(165, 67, 64, 0.9);  
+    z-index: 1;
+}
+
+.about * {
+    position: relative;
+    z-index: 2;
 }
 
 .about-image {
@@ -305,7 +344,6 @@ footer {
 .about-image img {
     max-width: 100%;
     border-radius: 10px;
-
 }
 
 .about-text {
@@ -313,8 +351,10 @@ footer {
     margin: 1rem;
     padding: 3rem;
     align-self: center;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
 }
+
 
 .skill-section {
     padding: 3rem;
@@ -377,8 +417,9 @@ footer {
 }
 
 
-#contact {
-    background-color: var(--primary-color);
+#contact-me {
+    padding: 0 4rem;
+    background-color: var(--secondary-color);
 }
 
 .contact-icons {
@@ -400,4 +441,15 @@ footer {
 footer {
     background-color: var(--primary-color);
     color: var(--secondary-color);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+    
+    h2 {
+        font-size: 1.5em;
+    }
 }
