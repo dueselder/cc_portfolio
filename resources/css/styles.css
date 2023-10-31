@@ -132,7 +132,6 @@ nav.sticky {
     left: 0;
     width: 100%;
     z-index: 1000;
-
 }
 
 /* Mobile-first styles: hide the nav items by default */
@@ -225,7 +224,7 @@ footer {
 .hero-text {
     color: var(--secondary-color);
     text-align: center;
-    padding-bottom: 2rem;
+    padding-bottom: 4rem;
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
 }
