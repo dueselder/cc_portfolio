@@ -153,8 +153,7 @@ nav.sticky {
     display: block;
 }
 
-
-@media screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) {
     #navItems {
         display: flex;
     }
@@ -201,12 +200,11 @@ footer {
     justify-content: center;
 }
 
-@media only screen and (max-width: 490px) {
+@media only screen and (max-width: 768px) {
     .hero {
-        height: 100vh;
         background-position: 40% 50%;
     }
-
+}
 
 .hero::before {
     content: "";  /* Essential for pseudo-elements */
@@ -294,7 +292,7 @@ footer {
 }
 
 /* Media query for smartphones */
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .project-title {
         grid-column: 1 / span 1; /* Adjust the title to span only one column on smartphones */
     }
@@ -448,7 +446,7 @@ footer {
 }
 
 /* Responsive Typography */
-@media (max-width: 768px) {
+@media only screen (max-width: 768px) {
     h1 {
         font-size: 2em;
     }
