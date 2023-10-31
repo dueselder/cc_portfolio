@@ -43,7 +43,7 @@ a:hover {
 /* Header styles */
 header {
     background-color: var(--light-color);
-    padding: 20px;
+    padding: 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -61,12 +61,36 @@ nav {
     padding: 10px 5%;
     background-color: var(--primary-color);  /* Using the primary color */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  /* Adding a subtle shadow for depth */
-    position: fixed;
+    position: static;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;  /* High z-index ensures the navbar stays above all other elements */
+}
 
+.hamburger {
+    background-color: transparent; /* Removes default background */
+    border: none; /* Removes default border */
+    font-size: 28px; /* Makes the icon larger */
+    color: #333; /* Default color; adjust as needed */
+    cursor: pointer; /* Cursor changes to hand icon when hovering over the button */
+    padding: 10px 15px; /* Some padding around the icon for a larger click area */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+    
+}
+
+.hamburger:hover {
+    background-color: #f0f0f0; /* Light gray background on hover; adjust as needed */
+    color: #000; /* Darker text on hover */
+}
+
+.hamburger:focus {
+    outline: none; /* Removes the default focus outline */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Adds a blue glow when the button is focused, useful for accessibility */
+}
+
+.hamburger-icon {
+    justify-self: end;
 }
 
 nav ul {
@@ -102,11 +126,45 @@ nav li a:hover::before {
     height: 3px;  
 }
 
+nav.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 
-nav img {
-    height: 50px;  /* Adjust based on your logo's design */
-    margin-right: auto;  /* Pushes the menu items to the right */
 }
+
+/* Mobile-first styles: hide the nav items by default */
+#navItems {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+}
+
+#navItems li a {
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+/* Display the navigation when .show class is added */
+#navItems.show {
+    display: block;
+}
+
+
+@media screen and (min-width: 600px) {
+    #navItems {
+        display: flex;
+    }
+    
+    #navToggle {
+        display: none;
+    }
+}
+
+
 
 
 /* Main styles */
@@ -140,7 +198,7 @@ footer {
     background-size: cover;  /* Cover the entire viewport */
     background-position: center;  /* Center the image */
     position: relative;  /* Establishes a stacking context for the overlay */
-    height: 96vh;  /* Making it full screen height for a strong impact; adjust as needed */
+    height: 94vh;  /* Making it full screen height for a strong impact; adjust as needed */
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -206,16 +264,19 @@ footer {
 
 .project {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: var(--light-color);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    align-items: center;
+    padding: 1rem;
 }
 
 .project-image {
     flex: 1;
+    margin-bottom: 1rem;
 }
 
 .thumbnail {
@@ -225,4 +286,118 @@ footer {
 
 .project-details {
     flex: 2;
+}
+
+.about {
+    display: flex;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+.about-image {
+    display: flex;
+    flex: 1;
+    margin: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 10px;
+
+}
+
+.about-text {
+    flex: 1;
+    margin: 1rem;
+    padding: 3rem;
+    align-self: center;
+    font-size: 1rem;
+}
+
+.skill-section {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#skills-header h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#skills {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+#hard-skills, #soft-skills {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+#hard-skills h3, #soft-skills h3 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.skill {
+    width: calc(50% - 10px); /* Taking into account the 10px gap */
+    margin-bottom: 10px;
+}
+
+.skill p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.skill-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.fill {
+    height: 20px;
+    background-color: #4CAF50;
+    width: 0;
+    border-radius: 5px;
+    transition: width 1s ease;
+}
+
+
+#contact {
+    background-color: var(--primary-color);
+}
+
+.contact-icons {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+}
+
+.contact-icons li a {
+    color: var(--primary-color);  /* Adjust color as needed */
+    transition: color 0.3s ease;
+}
+
+.contact-icons li a:hover {
+    color: var(--secondary-color);
+}
+
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
 }
