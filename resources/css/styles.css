@@ -164,9 +164,6 @@ nav.sticky {
     }
 }
 
-
-
-
 /* Main styles */
 main {
     padding: 0;
@@ -203,6 +200,13 @@ footer {
     align-items: flex-end;
     justify-content: center;
 }
+
+@media only screen and (max-width: 490px) {
+    .hero {
+        height: 100vh;
+        background-position: 40% 50%;
+    }
+
 
 .hero::before {
     content: "";  /* Essential for pseudo-elements */
